@@ -51,7 +51,7 @@
 							            <td>
 							                <i class="glyphicon glyphicon-ok-circle"></i> 
 							                '.$data['name'].'
-							                <button class="btn btn-default pull-right" role="iconpicker"></button>
+							                <button data-id-menu="'.$data['id'].'" data-search="false" class="btn btn-default icons pull-right" role="iconpicker"></button>
 							            </td>
 							        </tr>
 							    ';
@@ -92,6 +92,14 @@
                    saveNewPositions();
                }
            });
+
+            $('.icons').on('change', function(e) {
+                console.log(e.icon);
+                var id = $(this).attr('data-id-menu');
+
+                var i = $(this).parent('td').find('i.glyphicon').attr('class', 'glyphicon').addClass(e.icon);
+//                alert(i);
+            });
         });
 
         function saveNewPositions() {
