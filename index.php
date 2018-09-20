@@ -25,6 +25,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <link rel="stylesheet" href="css/bootstrap-iconpicker.min.css"/>
+
+    <style>
+        .pull-right{
+            float: right;
+        }
+    </style>
 </head>
 <body>
 	<div class="container" style="margin-top: 100px;">
@@ -42,7 +48,11 @@
 							while($data = $sql->fetch_array()) {
 							    echo '
 							        <tr data-index="'.$data['id'].'" data-position="'.$data['position'].'">
-							            <td><i class="glyphicon glyphicon-ok-circle"></i> '.$data['name'].'</td>
+							            <td>
+							                <i class="glyphicon glyphicon-ok-circle"></i> 
+							                '.$data['name'].'
+							                <button class="btn btn-default pull-right" role="iconpicker"></button>
+							            </td>
 							        </tr>
 							    ';
                             }
@@ -51,12 +61,6 @@
 				</table>
 			</div>
 		</div>
-
-
-        <button class="btn btn-default" data-iconset="fontawesome" role="iconpicker"></button>
-
-        <div role="iconpicker"></div>
-
 	</div>
 
     <script
